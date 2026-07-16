@@ -1,0 +1,66 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# -------------------------
+# Virtual Environments
+# -------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# -------------------------
+# IDE
+# -------------------------
+.vscode/
+.idea/
+.claude/
+
+# -------------------------
+# OS
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Jupyter
+# -------------------------
+.ipynb_checkpoints/
+
+# -------------------------
+# Testing
+# -------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# -------------------------
+# Logs
+# -------------------------
+logs/*.log
+
+# -------------------------
+# Large raw data blocks
+# (Download "Smart meters in London" from Kaggle and place in data/raw/)
+# -------------------------
+data/raw/halfhourly_dataset/
+data/raw/hhblock_dataset/
+data/raw/daily_dataset/
+data/raw/daily_dataset.csv
+data/raw/halfhourly_dataset.csv
+
+# -------------------------
+# Screenshots & debug artefacts
+# -------------------------
+*.png
+!assets/*.png

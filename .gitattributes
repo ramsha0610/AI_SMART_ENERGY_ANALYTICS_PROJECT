@@ -1,0 +1,4 @@
+models/best_regressor.joblib filter=lfs diff=lfs merge=lfs -text
+models/random_forest_regressor.joblib filter=lfs diff=lfs merge=lfs -text
+data/processed/final_dataset.parquet filter=lfs diff=lfs merge=lfs -text
+data/processed/final_dataset.csv filter=lfs diff=lfs merge=lfs -text
