@@ -36,7 +36,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("⚠️ Anomaly Detection", "Detect abnormal consumption and potential faults")
+hero("Anomaly Detection", "Detect abnormal consumption and potential faults")
 
 # --------------------------------------------------------------------------- #
 # Selection + summary
@@ -102,10 +102,10 @@ last_checked = datetime.now().strftime("%Y-%m-%d %H:%M")
 section_header("Risk Summary")
 kpi_cols = st.columns(4)
 kpis = [
-    ("Anomalies Detected", f"{anomaly_count}", "🚩"),
-    ("Highest Severity", f"{max_severity:.2f}", "🔴"),
-    ("Risk Level", risk_level, "🌡️"),
-    ("Last Checked", last_checked, "🕒"),
+    ("Anomalies Detected", f"{anomaly_count}", "flag"),
+    ("Highest Severity", f"{max_severity:.2f}", "anomaly"),
+    ("Risk Level", risk_level, "shield"),
+    ("Last Checked", last_checked, "clock"),
 ]
 for col, (label, value, icon) in zip(kpi_cols, kpis):
     with col:
@@ -126,7 +126,7 @@ if not household_data.empty:
             y=household_data[COL_CONSUMPTION_KWH],
             mode="lines",
             name="Consumption",
-            line=dict(color="#6366F1", width=1),
+            line=dict(color="#4F6BED", width=1.5),
         )
     )
 
@@ -141,8 +141,8 @@ if not household_data.empty:
                     mode="markers",
                     name="Anomalies",
                     marker=dict(
-                        color="#EF4444",
-                        size=8,
+                        color="#DC2626",
+                        size=7,
                         symbol="x",
                         line=dict(width=1, color="#FFFFFF"),
                     ),
@@ -155,9 +155,6 @@ if not household_data.empty:
         yaxis_title="Consumption (kWh)",
         hovermode="x unified",
         legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
-        template="smart_energy_dark",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
     )
     st.plotly_chart(fig, use_container_width=True)
 else:

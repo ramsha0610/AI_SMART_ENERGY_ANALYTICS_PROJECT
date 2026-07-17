@@ -25,7 +25,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("💡 AI Recommendations", "Personalised, quantified energy-saving actions")
+hero("AI Recommendations", "Personalised, quantified energy-saving actions")
 
 # --------------------------------------------------------------------------- #
 # Selection + savings summary
@@ -57,21 +57,21 @@ with kpi_cols[0]:
     kpi_card(
         "Energy Saved",
         format_energy(savings["total_kwh"]),
-        icon="⚡",
+        icon="energy",
         help="Total estimated annual energy savings from all recommendations",
     )
 with kpi_cols[1]:
     kpi_card(
         "Cost Saved",
         format_currency(savings["total_cost_gbp"]),
-        icon="💷",
+        icon="savings",
         help="Total estimated annual cost savings in GBP",
     )
 with kpi_cols[2]:
     kpi_card(
         "CO₂ Reduced",
         f"{savings['total_co2_kg']:,.1f} kg",
-        icon="🌱",
+        icon="leaf",
         help="Total estimated annual CO2 reduction",
     )
 
@@ -96,7 +96,7 @@ if not recommendations:
 
     empty_state(
         "No recommendations available",
-        icon="💡",
+        icon="recommendation",
         hint=hint,
     )
 else:

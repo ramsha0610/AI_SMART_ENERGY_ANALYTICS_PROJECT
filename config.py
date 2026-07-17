@@ -19,7 +19,7 @@ from typing import Final
 # Project metadata
 # --------------------------------------------------------------------------- #
 APP_NAME: Final[str] = "AI Smart Energy Analytics"
-APP_ICON: Final[str] = "⚡"
+APP_ICON: Final[str] = "\u25C6"  # geometric diamond — monochrome, non-emoji
 APP_TAGLINE: Final[str] = "Forecast • Analyze • Optimize household energy at scale"
 APP_VERSION: Final[str] = "1.0.0"
 AUTHOR: Final[str] = "Ramsha Firdous"
@@ -162,44 +162,44 @@ PRICE_PER_KWH_GBP: Final[float] = 0.28
 class Theme:
     """Immutable colour palette and typography for the dashboard.
 
-    Centralising the palette guarantees a consistent, dark-mode-friendly look
-    across every page and makes rebranding a one-line change.
+    Light enterprise design inspired by Linear, Stripe, and Vercel.
+    Neutral surfaces with a single muted blue accent.
     """
 
     # Brand / accent colours
-    primary: str = "#22D3A6"      # energetic teal-green (energy/eco)
-    secondary: str = "#6366F1"    # indigo accent
-    accent: str = "#F59E0B"       # amber highlight
+    primary: str = "#4F6BED"      # muted enterprise blue
+    secondary: str = "#6366F1"    # indigo for secondary accents
+    accent: str = "#F59E0B"       # amber for highlights
 
-    # Surfaces (tuned for a modern dark UI)
-    background: str = "#0E1117"
-    surface: str = "#161B22"
-    surface_alt: str = "#1F2630"
-    border: str = "#2A313C"
+    # Surfaces — light, neutral
+    background: str = "#FFFFFF"
+    surface: str = "#FFFFFF"
+    surface_alt: str = "#F9FAFB"
+    border: str = "#E5E7EB"
 
     # Text
-    text: str = "#E6EDF3"
-    text_muted: str = "#9AA4B2"
+    text: str = "#111827"
+    text_muted: str = "#6B7280"
 
     # Semantic status colours
-    success: str = "#22C55E"
-    warning: str = "#F59E0B"
-    danger: str = "#EF4444"
-    info: str = "#38BDF8"
+    success: str = "#059669"
+    warning: str = "#D97706"
+    danger: str = "#DC2626"
+    info: str = "#2563EB"
 
     font_family: str = (
         "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif"
     )
 
-    # Ordered palette for categorical charts (e.g. clusters).
+    # Ordered palette for categorical charts (muted, professional).
     categorical: tuple[str, ...] = field(
         default_factory=lambda: (
-            "#22D3A6",
-            "#6366F1",
+            "#4F6BED",
+            "#7C3AED",
+            "#06B6D4",
             "#F59E0B",
-            "#38BDF8",
             "#EF4444",
-            "#A855F7",
+            "#10B981",
         )
     )
 
@@ -207,31 +207,31 @@ class Theme:
 THEME: Final[Theme] = Theme()
 
 # Plotly template name registered in ``utils.visualization``.
-PLOTLY_TEMPLATE: Final[str] = "smart_energy_dark"
+PLOTLY_TEMPLATE: Final[str] = "smart_energy_light"
 
 # --------------------------------------------------------------------------- #
 # Page registry — single source of truth for navigation labels & icons.
 # `app.py` builds the sidebar from this so pages and icons never drift.
 # --------------------------------------------------------------------------- #
 PAGES: Final[dict[str, dict[str, str]]] = {
-    "home": {"title": "Home", "icon": "🏠", "module": "app_home"},
-    "dashboard": {"title": "Dashboard", "icon": "📊", "module": "pages/Dashboard.py"},
-    "forecast": {"title": "Forecast", "icon": "📈", "module": "pages/Forecast.py"},
+    "home": {"title": "Home", "icon": "\u25C6", "module": "app_home"},
+    "dashboard": {"title": "Dashboard", "icon": "\u25A0", "module": "pages/Dashboard.py"},
+    "forecast": {"title": "Forecast", "icon": "\u25B2", "module": "pages/Forecast.py"},
     "household": {
         "title": "Household Analysis",
-        "icon": "🏡",
+        "icon": "\u25CF",
         "module": "pages/Household.py",
     },
-    "clustering": {"title": "Clustering", "icon": "📉", "module": "pages/Clustering.py"},
+    "clustering": {"title": "Clustering", "icon": "\u25C9", "module": "pages/Clustering.py"},
     "anomaly": {
         "title": "Anomaly Detection",
-        "icon": "⚠️",
+        "icon": "\u25B3",
         "module": "pages/Anomaly.py",
     },
     "recommendations": {
         "title": "AI Recommendations",
-        "icon": "💡",
+        "icon": "\u25C7",
         "module": "pages/Recommendations.py",
     },
-    "about": {"title": "About", "icon": "ℹ️", "module": "pages/About.py"},
+    "about": {"title": "About", "icon": "\u25CB", "module": "pages/About.py"},
 }

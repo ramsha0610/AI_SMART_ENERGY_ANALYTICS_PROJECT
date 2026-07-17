@@ -41,7 +41,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("📉 Clustering", "Group households into meaningful consumption segments")
+hero("Clustering", "Group households into meaningful consumption segments")
 
 # --------------------------------------------------------------------------- #
 # Load data and compute household features
@@ -184,7 +184,7 @@ with left:
             color="cluster" if "cluster" in features_df.columns else None,
             hover_name="household_id",
             size="total_consumption",
-            color_continuous_scale=px.colors.qualitative.Set1,
+            color_continuous_scale=px.colors.qualitative.Pastel,
             labels={
                 "avg_consumption": "Average Consumption (kWh)",
                 "peak_consumption": "Peak Consumption (kWh)",
@@ -193,10 +193,7 @@ with left:
             },
             title="Households by Average and Peak Consumption",
         )
-        fig.update_layout(
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
-        )
+        fig.update_layout()
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.info("No data available for scatter plot.")
@@ -214,10 +211,7 @@ with right:
             text=cluster_counts.values,
         )
         fig.update_traces(textposition="outside")
-        fig.update_layout(
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
-        )
+        fig.update_layout()
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.info("No cluster data available for distribution.")

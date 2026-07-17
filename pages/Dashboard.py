@@ -39,7 +39,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("📊 Dashboard", "Fleet-wide energy KPIs, trends, and weather impact")
+hero("Dashboard", "Fleet-wide energy KPIs, trends, and weather impact")
 
 # Load processed data
 with st.spinner("Loading dataset..."):
@@ -124,10 +124,6 @@ with left:
         title="Average Daily Consumption Trend",
     )
     fig.update_layout(hovermode="x unified")
-    fig.update_layout(
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
     st.plotly_chart(fig, use_container_width=True)
 
 # Right chart: Energy Distribution (by household average consumption)
@@ -152,10 +148,6 @@ with right:
         title="Average Consumption Distribution (Top 10 + Other)",
     )
     fig.update_traces(textposition="inside", textinfo="percent+label")
-    fig.update_layout(
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
     st.plotly_chart(fig, use_container_width=True)
 
 # Lower row: Weather Impact and Recent Activity
@@ -174,10 +166,6 @@ with lower_left:
         title="Consumption vs. Temperature",
         labels={"temperature_c": "Temperature (°C)", COL_CONSUMPTION_KWH: "Consumption (kWh)"},
         trendline="ols" if _HAS_STATSMODELS else None,
-    )
-    fig.update_layout(
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
     )
     st.plotly_chart(fig, use_container_width=True)
 

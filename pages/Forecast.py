@@ -31,7 +31,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("📈 Forecast", "Predict future household electricity consumption")
+hero("Forecast", "Predict future household electricity consumption")
 
 # --------------------------------------------------------------------------- #
 # Controls
@@ -52,7 +52,7 @@ with c3:
         value=DEFAULT_FORECAST_HORIZON_DAYS,
     )
 
-run = st.button("⚡ Run Forecast", type="primary", use_container_width=True)
+run = st.button("Run Forecast", type="primary", use_container_width=True)
 
 # --------------------------------------------------------------------------- #
 # Results
@@ -68,22 +68,22 @@ else:
 res_cols = st.columns(2)
 with res_cols[0]:
     if result is None:
-        kpi_card("Predicted Consumption", "—", icon="🔮")
+        kpi_card("Predicted Consumption", "—", icon="forecast")
     else:
         total_predicted = sum(result.predicted_kwh)
         kpi_card(
             "Predicted Consumption",
             f"{total_predicted:,.1f} kWh",
-            icon="🔮",
+            icon="forecast",
         )
 with res_cols[1]:
     if result is None:
-        kpi_card("Confidence", "—", icon="📏")
+        kpi_card("Confidence", "—", icon="activity")
     else:
         kpi_card(
             "Confidence",
             f"{result.confidence:.0%}",
-            icon="📏",
+            icon="activity",
             # Optionally add a delta if we want to show confidence change
         )
 
@@ -140,7 +140,7 @@ else:
                 y=historical[COL_CONSUMPTION_KWH],
                 mode="lines",
                 name="Actual (Historical)",
-                line=dict(color="#22D3A6", width=2),
+                line=dict(color="#4F6BED", width=2),
             )
         )
 
@@ -163,7 +163,7 @@ else:
                     x=result.timestamps + result.timestamps[::-1],  # x, then x reversed
                     y=result.upper_kwh + result.lower_kwh[::-1],
                     fill="toself",
-                    fillcolor="rgba(245, 158, 11, 0.2)",
+                    fillcolor="rgba(245, 158, 11, 0.12)",
                     line=dict(color="rgba(255,255,255,0)"),
                     hoverinfo="skip",
                     showlegend=True,
@@ -178,9 +178,6 @@ else:
         yaxis_title="Consumption (kWh)",
         hovermode="x unified",
         legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
-        template="smart_energy_dark",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
     )
 
     st.plotly_chart(fig, use_container_width=True)

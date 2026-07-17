@@ -36,7 +36,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("🏡 Household Analysis", "Understand an individual household's usage profile")
+hero("Household Analysis", "Understand an individual household's usage profile")
 
 # --------------------------------------------------------------------------- #
 # Search / selection
@@ -98,10 +98,10 @@ else:
 # Display KPIs
 summary_cols = st.columns(4)
 summary = [
-    ("Total Consumption", total_consumption_str, "⚡"),
-    ("Daily Average", daily_avg_str, "📅"),
-    ("Peak Hour", peak_hour_str, "⏰"),
-    ("Cluster", cluster_label, "📉"),
+    ("Total Consumption", total_consumption_str, "energy"),
+    ("Daily Average", daily_avg_str, "calendar"),
+    ("Peak Hour", peak_hour_str, "clock"),
+    ("Cluster", cluster_label, "clustering"),
 ]
 for col, (label, value, icon) in zip(summary_cols, summary):
     with col:
@@ -156,8 +156,6 @@ with tab1:
         )
         fig.update_layout(
             xaxis=dict(tickmode="linear", tick0=0, dtick=2),
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
         )
         st.plotly_chart(fig, use_container_width=True)
     else:
@@ -175,8 +173,6 @@ with tab2:
         )
         fig.update_layout(
             xaxis=dict(categoryorder="array", categoryarray=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]),
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
         )
         st.plotly_chart(fig, use_container_width=True)
     else:
@@ -194,8 +190,6 @@ with tab3:
         )
         fig.update_layout(
             xaxis=dict(tickmode="linear", tick0=1, dtick=1),
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
         )
         st.plotly_chart(fig, use_container_width=True)
     else:

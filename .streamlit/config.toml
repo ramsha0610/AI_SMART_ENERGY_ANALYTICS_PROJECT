@@ -1,13 +1,12 @@
 # Streamlit configuration for AI Smart Energy Analytics.
-# The palette here mirrors utils.visualization / config.Theme so the native
-# Streamlit chrome matches the custom CSS.
+# Light enterprise theme — matches utils.visualization / config.Theme.
 
 [theme]
-base = "dark"
-primaryColor = "#22D3A6"
-backgroundColor = "#0E1117"
-secondaryBackgroundColor = "#161B22"
-textColor = "#E6EDF3"
+base = "light"
+primaryColor = "#4F6BED"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F9FAFB"
+textColor = "#111827"
 font = "sans serif"
 
 [server]

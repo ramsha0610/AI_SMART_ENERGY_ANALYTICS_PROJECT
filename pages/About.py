@@ -19,7 +19,7 @@ logger = get_logger(__name__)
 register_plotly_template()
 inject_global_css()
 
-hero("ℹ️ About", f"{config.APP_NAME} · v{config.APP_VERSION}")
+hero("About", f"{config.APP_NAME} \u00b7 v{config.APP_VERSION}")
 
 section_header("Project Description")
 st.markdown(
@@ -102,7 +102,6 @@ badges(
         "scikit-learn",
         "XGBoost",
         "Joblib",
-        "Matplotlib",
     ]
 )
 
